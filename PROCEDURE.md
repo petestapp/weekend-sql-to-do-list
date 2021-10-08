@@ -2,6 +2,9 @@
 [x] link html, css, scripts, server
 [x] set up inputs in html
 
-[] create database
-[] create pool
-[] require pool
+[x] create database
+[x] create pool
+[x] require pool
+
+[x] set up displayTasks function
+[x] append DOM with tasks and "Complete" and "Delete" buttons for each
