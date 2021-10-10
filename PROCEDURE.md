@@ -18,5 +18,5 @@
 [x] set up addTask in client.js
 [x] set up app.post in server.js
 
-[] create CSS classes for "notCompleted" and "Completed"
-[] link CSS classes to whether complete = true in database
+[x] create CSS classes for "notCompleted" and "completed"
+[x] link CSS classes to whether complete = true in database

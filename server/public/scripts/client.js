@@ -64,8 +64,17 @@ function displayTasks(){
         console.log('back from GET:', response);
         let el = $('#outputDiv');
         el.empty();
+        response.sort((a, b) => a.id - b.id);
+        let classSetter;
         for (let i=0; i<response.length; i++){
-            el.append(`<li>${response[i].task}
+            if (response[i].complete === true){
+                classSetter = "completed";
+            }
+            else {
+                classSetter = "notCompleted";
+            }
+            console.log(`classSetter:`, classSetter)
+            el.append(`<li data-id=${response[i].id} class=${classSetter}>${response[i].task}
             <button class="completedButton" data-id=${response[i].id}>Completed</button>
             <button class="deleteButton" data-id=${response[i].id}>Delete</button>
             </li>`)
