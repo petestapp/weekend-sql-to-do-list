@@ -6,6 +6,20 @@ function onReady(){
     $('#outputDiv').on('click', '.deleteButton', deleteTask);
 } // end onReady
 
+function deleteTask(){
+    console.log('in deleteTask:', $(this).data('id'));
+    $.ajax({
+        method: 'DELETE',
+        url: '/tasks?id=' + $(this).data('id')
+    }).then(function(response){
+        console.log('back from delete:', response);
+        displayTasks();
+    }).catch(function(err){
+        console.log(err);
+        alert('error deleting task');
+    })
+}
+
 function markTaskCompleted(){
     console.log('in markTaskCompleted:', $(this).data('id'));
     $.ajax({
@@ -19,10 +33,6 @@ function markTaskCompleted(){
         alert('error marking task as completed');
     })
 } // markTaskCompleted
-
-function deleteTask(){
-    console.log('in deleteTask:', $(this).data('id'));
-} // end deleteTask
 
 function displayTasks(){
     $.ajax({
