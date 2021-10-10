@@ -45,3 +45,15 @@ app.delete('/tasks', (req, res)=>{
         res.sendStatus(500);
     })
 })
+
+app.post('/tasks', (req, res)=>{
+    console.log('/tasks POST:', req.body);
+    let queryString = `INSERT INTO tasks (task, complete) VALUES ($1, $2);`
+    let values = [req.body.task, false];
+    pool.query(queryString, values).then((results)=>{
+        res.sendStatus(201);
+    }).catch((err)=>{
+        console.log(err);
+        res.sendStatus(500);
+    })
+})

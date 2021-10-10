@@ -2,9 +2,31 @@ $(document).ready(onReady);
 
 function onReady(){
     displayTasks();
+    $('#addTaskButton').on('click', addTask);
     $('#outputDiv').on('click', '.completedButton', markTaskCompleted);
     $('#outputDiv').on('click', '.deleteButton', deleteTask);
 } // end onReady
+
+function addTask(){
+    console.log('in addTask');
+    let objectToSend = {
+        task: $('#taskInput').val(),
+        completed: false
+    }
+    console.log('sending:', objectToSend);
+    $.ajax({
+        method: 'POST',
+        url: '/tasks',
+        data: objectToSend
+    }).then(function(response){
+        console.log('back from POST:', response);
+        $('#taskInput').val('');
+        displayTasks();
+    }).catch(function(err){
+        console.log(err);
+        alert('error adding task')
+    })
+}
 
 function deleteTask(){
     console.log('in deleteTask:', $(this).data('id'));
@@ -18,7 +40,7 @@ function deleteTask(){
         console.log(err);
         alert('error deleting task');
     })
-}
+} // end deleteTask
 
 function markTaskCompleted(){
     console.log('in markTaskCompleted:', $(this).data('id'));
@@ -50,6 +72,6 @@ function displayTasks(){
         }
     }).catch(function(err){
         console.log(err);
-        alert('problem getting tasks');
+        alert('error displaying tasks');
     })
 } // end displayTasks

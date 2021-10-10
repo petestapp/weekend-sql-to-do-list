@@ -15,8 +15,8 @@
 [x] set up deleteTask in client.js
 [x] set up app.delete in server.js
 
-[] set up addTask in client.js
-[] set up app.post in server.js
+[x] set up addTask in client.js
+[x] set up app.post in server.js
 
 [] create CSS classes for "notCompleted" and "Completed"
 [] link CSS classes to whether complete = true in database
