@@ -1,4 +1,4 @@
-CREATE DATABASE weekend-to-do-app;
+CREATE DATABASE weekend_to_do_app;
 
 CREATE TABLE "tasks"(
 	id serial primary key,
