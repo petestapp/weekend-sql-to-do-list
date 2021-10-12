@@ -10,7 +10,8 @@ I created a to-do list website where users can add tasks to a database, mark the
 ## Installation
 1. Create a database called `weekend-to-do-list` and run `database.sql`
 2. run `npm install`
-3. open at localhost:3000 in browser
+3. run `npm start`
+4. open at localhost:3000 in browser
 
 ## Usage
 1. Input your task in the text field and click "Add" to add to list.
