@@ -2,10 +2,6 @@ body {
     background-color: cadetblue;
 }
 
-.notCompleted{
-    font-weight: bold;
-}
-
-.completed{
+.line-through{
     text-decoration: line-through;
 }

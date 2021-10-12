@@ -65,18 +65,25 @@ function displayTasks(){
         let el = $('#outputDiv');
         el.empty();
         response.sort((a, b) => a.id - b.id);
-        let classSetter;
+        let buttonClassSetter;
+        let listItemClassSetter;
         for (let i=0; i<response.length; i++){
             if (response[i].complete === true){
-                classSetter = "completed";
+                buttonClassSetter = "btn btn-success btn-sm";
+                listItemClassSetter = "text-black-50"
             }
             else {
-                classSetter = "notCompleted";
+                buttonClassSetter = "btn btn-outline-success btn-sm";
+                listItemClassSetter = "text-dark"
             }
-            console.log(`classSetter:`, classSetter)
-            el.append(`<li data-id=${response[i].id} class=${classSetter}>${response[i].task}
-            <button class="completedButton" data-id=${response[i].id}>Completed</button>
-            <button class="deleteButton" data-id=${response[i].id}>Delete</button>
+            el.append(`<li  class="list-group-item clearfix ${listItemClassSetter}" data-id=${response[i].id}>
+            <span class="float-start">
+                ${response[i].task}
+            </span>
+            <span class="float-end">
+                <button class="completedButton float-right mx-1 ${buttonClassSetter}" data-id=${response[i].id}>Completed</button>
+                <button class="deleteButton float-right btn btn-danger btn-sm mx-1" data-id=${response[i].id}>Delete</button>
+            </span>
             </li>`)
         }
     }).catch(function(err){
